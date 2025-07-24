@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prez</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div id="slides">
+
+        <!-- Slide 0: Opening -->
+        <div class="slide open-page b1">
+          <div class="logo"></div>
+          <div class="eletflash"></div>        
+          <div class="card">
+            <p>CodeCool Web - 2nd Team Week</p> 
+            <h1>Fetch Boys</h1>
+            <h3>Yet Another Online Shop:</h3>
+            <p>Balogh Áron, Szeszták Árpi, Sándor Dalmadi</p>
+          </div>
+        </div>
+        
+        <!-- Slide 1 -->
+        <div class="slide">
+          <div class="content-container">
+            <div class="hero-text">
+              <h1>01.</h1>
+              <h2>Server Setup</h2>
+            </div>
+            <div class="content-text">
+              <ul>
+                <li>npm init, install express</li>
+                <li>Create server.js file</li>
+                <li>Serve static files: HTML, CSS, JS</li>
+                <li>Basic route: Serve homepage</li>
+              </ul>
+              <p>Server running and ready for frontend interaction</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Slide 2 -->
+        <div class="slide">
+          <div class="content-container">
+            <div class="hero-text">
+              <h1>02.</h1>
+              <h2>API Endpoints</h2>
+            </div>
+      
+            <div class="text-and-code">
+              <div class="content-text">
+                <p>Our backend supports essential webshop functions:</p>
+                <ul>
+                  <li>Products: get, add, update</li>
+                  <li>Orders: place and store</li>
+                </ul>
+                <p>RESTful API forms the base of our logic</p>
+              </div>
+      
+              <div class="code-block">
+                <pre><code class="language-javascript">
+      async function fetchData(url){
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.log(`Something wrong... ${error.message}`);
+        }
+      }
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Slide 3 -->
+        <div class="slide">
+            <div class="content-container">
+              <div class="hero-text">
+                <h1>03.</h1>
+                <h2>Public Site (User UI)</h2>
+              </div>
+        
+              <div class="content-text">
+                <ul class="interactive-list">
+                  <li data-code-id="0">Product listing from API</li>
+                  <li data-code-id="1">JS-based shopping cart</li>
+                  <li data-code-id="2">Checkout with fetch-based order submission</li>
+                 <!--- <li data-code-id="3">Event listeners, DOM manipulation</li> -->
+                </ul>
+                <p>Full Shopping experience implemented</p>
+        
+                <div class="code-block">
+                  <pre><code id="codeDisplay" class="language-javascript">// Click on a list item to view code</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+        <!-- Slide 4 -->
+        <div class="slide">
+            <div class="content-container">
+              <div class="hero-text">
+                <h1>04.</h1>
+                <h2>Editor Site (Admin UI)</h2>
+              </div>
+              <div class="content-text">
+                <ul>
+                  <li>Add and edit products via form</li>
+                  <li>Updates sent to API with PUT/POST</li>
+                  <li>Product data prefilled in the form for editing</li>
+                  <li>Interface kept simple and functional for quick updates</li>
+                  <!--<li>Dynamic :hover</li>
+                  <li>Let's Check it: <a class="link" target="_blank" href="http://127.0.0.1:5501/frontend/index.html"></a></li> -->
+                </ul>
+                <p>Admins manage the prduct list easily</p>
+              </div>
+            </div>
+          </div>
+
+            <!-- Slide 5 -->
+            <div class="slide">
+            <div class="content-container">
+              <div class="hero-text">
+                <h1>05.</h1>
+                <h2>Client-Server Connention</h2>
+              </div>
+              <div class="content-text">
+                <ul>
+                  <li>Fetch used to comminative with backend</li>
+                  <li>Products fetched and orders submitted</li>
+                  <li>Responses handled dynamically</li>
+                  <li>Interface kept simple and functional for quick updates</li>
+                </ul>
+                <p>Frontend and backend fully integrated</p>
+              </div>
+            </div>
+          </div>
+      
+        <!-- Slide 6 -->
+            <div class="slide">
+            <div class="content-container">
+              <div class="hero-text">
+                <h1>06.</h1>
+                <h2>Extras & Takeaways</h2>
+              </div>
+              <div class="content-text">
+                <ul>
+                  <li>Basic error handling</li>
+                  <li>Mobile-friendly layout</li>
+                  <li>Express + API integration</li>
+                  <li>Webshop logic in practice</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+        <div class="slide open-page b2">
+            <div class="card ">
+              <h2 class="sum">Summary / Q&A</h2>
+            </div>
+          </div>
+        
+        <!-- Slide 7 -->
+        <div class="slide open-page b3">
+          <div class="card ">
+            <p>CodeCool Web - 2nd Team Week</p> 
+            <h1>Yet Another Online Shop</h1>
+            <h2>Thank You For Your Attention!</h2>
+          </div>
+        </div>
+      
+      </div>
+    <nav>
+        <div class="bullets" id="bullets"></div>
+    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+</body>
+</html>
