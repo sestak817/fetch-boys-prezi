@@ -68,15 +68,21 @@
       
               <div class="code-block">
                 <pre><code class="language-javascript">
-      async function fetchData(url){
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-          return data;
-        } catch (error) {
-          console.log(`Something wrong... ${error.message}`);
-        }
-      }
+app.post('/api/cart', (req, res) => {
+  const addedProduct = req.body;
+  const productFromList = products.find
+  (p => p.id === addedProduct.id);
+  const quantity = parseInt(addedProduct.quantity);
+
+  if (quantity > 0 && productFromList) {
+    for (let i = 0; i < quantity; i++) {
+      cart.push(productFromList);
+    }
+    res.status(201).send(JSON.stringify(cart));
+  } else {
+    res.status(400).send('Invalid request');
+  }
+});
                 </code></pre>
               </div>
             </div>
@@ -133,7 +139,7 @@
             <div class="content-container">
               <div class="hero-text">
                 <h1>05.</h1>
-                <h2>Client-Server Connention</h2>
+                <h2>Client-Server Connetion</h2>
               </div>
               <div class="content-text">
                 <ul>

@@ -14,44 +14,37 @@ function main() {
    const bulletContainer = document.getElementById('bullets');
 
    const codeSnippets = [
-    `function filterCapitals(capitalList, searchValue) {
-      return capitalList.filter(item =>
-        item.capital.toLowerCase().includes(searchValue.toLowerCase())
-      );
-    }`,
-    
-    `function updateButtons() {
-        const currentCity = document.getElementById('currentCity').innerText;
-        currentCityIndex = capitalList.findIndex(obj => obj.capital === currentCity);
+    `const allProducts = fetchData('/api/products');
 
-    prevBtn.disabled = currentCityIndex === 0;
-    nextBtn.disabled = currentCityIndex === capitalList.length - 1;
-  }`,
-    
-    `async function getCountriesCurrencies(cc3Url, cc3) {
-  const currenciesUrl = cc3Url + cc3;
-  const data = await fetchData(currenciesUrl);
-  const currencies = data.currencies;
-  const currencyDiv = document.getElementById('currency-list');
-  
-  for (const code in currencies) {
-    const currency = currencies[code];
-    const currencyEl = document.createElement('p');
-    currencyEl.textContent = $ {code} – $ {currency.name} ($ {currency.symbol});
-    currencyDiv.appendChild(currencyEl);
+async function productListFetching(allProducts) {
+  let products = await allProducts;
+  for (const product of products){
+    createProductCard(product);
   }
 }`,
     
-    `function renderCapitalsAndCountries(countries){
-  const countriesList = document.getElementById('countries-list');
-  countries.forEach((country, index) => {
-    const countryStructure = 
-    <li id="country-$ {index}" class="country-card">
-    <h2 id='capital-$ {index}' data-cca3=$ {country.cca3}>$ {country.capital} ($ {country.country})</h2>
-    </li>;
-    countriesList.insertAdjacentHTML('beforeend', countryStructure);
+    `async function addToCart(productId) {
+  const products = await fetchData('/api/products');
+  const product = products.find(p => p.id === productId);
+
+  fetch("/api/cart", {
+    method: "POST",
+    body: JSON.stringify({
+      id: product.id,
+      quantity: 1
+    }),
+    headers: {
+      "Content-type": "application/json"
+    }
   });
+}`,
+    
+    `async function fetchCart() {
+  const cart = await fetchData('/api/checkout');
+  console.log('Fetched cart:', cart);
+  return cart;
 }`
+    
     ];
 
    let current = 0;
